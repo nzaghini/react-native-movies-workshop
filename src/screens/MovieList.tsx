@@ -1,5 +1,5 @@
 import React from "react";
-import {  ScrollView, Text } from "react-native";
+import {  ScrollView, ActivityIndicator, StyleSheet } from "react-native";
 import { Screens } from "../common/AppNavigator";
 import { ScreenProps } from "../common/ScreenProps";
 import { Movies, Movie } from "../common/Models";
@@ -45,6 +45,9 @@ class MovieList extends React.Component<ScreenProps, MovieListState> {
     }
 
     render() {
+        if (this.state.allMovies.movies.length === 0) {
+            return <ActivityIndicator style={styles.loadingIndicator} />;
+        }
         return (
             <ScrollView>
                 {this.renderMovies(this.state.allMovies)}
@@ -65,5 +68,11 @@ class MovieList extends React.Component<ScreenProps, MovieListState> {
     }
 
 }
+
+const styles = StyleSheet.create({
+    loadingIndicator: {
+        flex: 1,
+    },
+});
 
 export default MovieList;

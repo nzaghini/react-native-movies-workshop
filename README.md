@@ -28,6 +28,7 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 ## Step 5 - v0.5.0
 - Movie Item codebase with action support for item selection
 
-
+## Step 6 - v0.6.0
+- Movie Details codebase
 
 

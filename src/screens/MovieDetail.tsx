@@ -1,18 +1,56 @@
 import React from "react";
-import {  Text } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
+import { ScreenProps} from "../common/ScreenProps";
+import { Movie } from "../common/Models";
 
-class MovieDetail extends React.Component {
+interface MovieDetailsProps extends ScreenProps {
+    movie: Movie;
+}
+
+class MovieDetail extends React.Component<MovieDetailsProps> {
 
     static navigationOptions = {
         title: "Movie Details",
     };
 
     render() {
+        const movie = this.props.movie || this.props.navigation.getParam("movie");
+        if (!movie) { return <Text>Something wrong going on here!</Text>; }
+
+        const { container, title, director, year} = styles;
+        const directorName = `Director: ${movie.director.firstName} ${movie.director.lastName}`;
+
         return (
-            <Text>I am a detail</Text>
+            <View style={container}>
+                <Text style={title}>{movie.title}</Text>
+                <Text style={director}>{directorName}</Text>
+                <Text style={year}>Year: {movie.year}</Text>
+            </View>
         );
     }
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "flex-start",
+    },
+    title: {
+        fontSize: 60,
+        padding: 5,
+    },
+    director: {
+        fontSize: 20,
+        padding: 5,
+        color: "#a9a9a9",
+    },
+    year: {
+        fontSize: 10,
+        padding: 5,
+        color: "#a9a9a9",
+    },
+});
 
 export default MovieDetail;
