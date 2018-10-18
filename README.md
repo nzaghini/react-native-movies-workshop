@@ -13,3 +13,9 @@ You may get an issue compiling the iOS application. This is a known issue with l
 - `../../scripts/ios-configure-glog.sh`     
 
 Read more about this issue: https://github.com/facebook/react-native/issues/20774
+
+## Step 2 - v0.2.0
+- Setup the project to use TypeScript!
+- Use the following tutorial from Facebook: https://facebook.github.io/react-native/blog/2018/05/07/using-typescript-with-react-native alternatively check out tag v0.2.0
+
+
