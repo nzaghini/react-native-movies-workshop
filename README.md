@@ -25,6 +25,8 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 ## Step 4 - v0.4.0
 - MovieList codebase with dummy data and manual object model
 
+## Step 5 - v0.5.0
+- Movie Item codebase with action support for item selection
 
 
 

@@ -2,18 +2,8 @@ import React from "react";
 import {  ScrollView, Text } from "react-native";
 import { Screens } from "../common/AppNavigator";
 import { ScreenProps } from "../common/ScreenProps";
-
-/* This model will be removed once we create actual network access and GraphQL types */
-interface Movie {
-    id: string;
-    title: string;
-    year: string;
-    director: string;
-}
-
-interface Movies {
-    movies: Movie[];
-}
+import { Movies, Movie } from "../common/Models";
+import MovieItem from "../components/MovieItem";
 
 interface MovieListState {
     allMovies: Movies;
@@ -40,8 +30,14 @@ class MovieList extends React.Component<ScreenProps, MovieListState> {
             {
                 allMovies: {
                     movies: [
-                        { id: "1", title: "Title 1", year: "2018", director: "" },
-                        { id: "2", title: "Title 2", year: "2019", director: "" },
+                        { id: "1", title: "Title 1", year: "2018", director: {
+                            firstName: "First Name 1",
+                            lastName: "Last Name 1",
+                        } },
+                        { id: "2", title: "Title 2", year: "2019", director: {
+                            firstName: "First Name 2",
+                            lastName: "Last Name 2",
+                        } },
                     ],
                 },
             },
@@ -56,14 +52,14 @@ class MovieList extends React.Component<ScreenProps, MovieListState> {
         );
     }
 
-    private onPress = () => {
-        this.props.navigation.navigate(Screens.MovieDetails);
+    private onPress = (movie: Movie) => {
+        this.props.navigation.navigate(Screens.MovieDetails, {movie});
     }
 
     private renderMovies = (allMovies: Movies) => {
         return allMovies.movies.map((movie) => {
             return (
-                <Text key={movie.id}>{movie.title}</Text>
+                <MovieItem key={movie.id} movie={movie} action={this.onPress} />
             );
         });
     }
