@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, SafeAreaView } from "react-native";
+import { AppNavigator } from "./common/AppNavigator";
 
 class App extends React.Component {
     
@@ -9,9 +9,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <SafeAreaView>
-                <Text>{this.getWelcomeMessage("TypeScript")}</Text>
-            </SafeAreaView>
+            <AppNavigator />
         );
     }
     

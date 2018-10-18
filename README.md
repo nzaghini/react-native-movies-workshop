@@ -18,4 +18,9 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 - Setup the project to use TypeScript!
 - Use the following tutorial from Facebook: https://facebook.github.io/react-native/blog/2018/05/07/using-typescript-with-react-native alternatively check out tag v0.2.0
 
+## Step 3 - v0.3.0
+- Setup dummy MovieList and MovieDetail screens
+- Setup navigation using `react-navigation`. Read more here: https://reactnavigation.org/
+
+
 
