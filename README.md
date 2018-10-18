@@ -22,5 +22,10 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 - Setup dummy MovieList and MovieDetail screens
 - Setup navigation using `react-navigation`. Read more here: https://reactnavigation.org/
 
+## Step 4 - v0.4.0
+- MovieList codebase with dummy data and manual object model
+
+
+
 
 
