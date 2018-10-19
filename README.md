@@ -33,3 +33,6 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 
 ## Step 7 - v0.7.0
 - Snapshot Jest tests example
+
+## Step 8 - v0.8.0
+- GraphQL integration!

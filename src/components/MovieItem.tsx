@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
-import { Movie } from "../common/Models";
+import { ALL_MOVIES_QUERY_movies as Movie } from "../queries/models/ALL_MOVIES_QUERY";
 
 interface MovieProp {
     movie: Movie;

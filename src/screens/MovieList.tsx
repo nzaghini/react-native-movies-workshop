@@ -1,9 +1,12 @@
 import React from "react";
-import {  ScrollView, ActivityIndicator, StyleSheet } from "react-native";
+import {  ScrollView, ActivityIndicator, StyleSheet, Text } from "react-native";
+import { Query } from "react-apollo";
 import { Screens } from "../common/AppNavigator";
 import { ScreenProps } from "../common/ScreenProps";
-import { Movies, Movie } from "../common/Models";
 import MovieItem from "../components/MovieItem";
+import { ALL_MOVIES_QUERY } from "../queries/queries.graphql";
+import { ALL_MOVIES_QUERY_movies as Movie,
+         ALL_MOVIES_QUERY as Movies} from "../queries/models/ALL_MOVIES_QUERY";
 
 interface MovieListState {
     allMovies: Movies;
@@ -15,43 +18,23 @@ class MovieList extends React.Component<ScreenProps, MovieListState> {
         title: "Movie List",
     };
 
-    constructor(props: ScreenProps) {
-        super(props);
-        this.state = {
-            allMovies: {
-                movies: [],
-            },
-        };
-    }
-
-    componentDidMount() {
-        // Pretend network kicked in here! 
-        this.setState(
-            {
-                allMovies: {
-                    movies: [
-                        { id: "1", title: "Title 1", year: "2018", director: {
-                            firstName: "First Name 1",
-                            lastName: "Last Name 1",
-                        } },
-                        { id: "2", title: "Title 2", year: "2019", director: {
-                            firstName: "First Name 2",
-                            lastName: "Last Name 2",
-                        } },
-                    ],
-                },
-            },
-        );
-    }
-
     render() {
-        if (this.state.allMovies.movies.length === 0) {
-            return <ActivityIndicator style={styles.loadingIndicator} />;
-        }
         return (
-            <ScrollView>
-                {this.renderMovies(this.state.allMovies)}
-            </ScrollView>
+            <Query query={ALL_MOVIES_QUERY}>
+                {({ loading, error, data }) => {
+                    if (loading) {
+                        return <ActivityIndicator style={styles.loadingIndicator} />;
+                    }
+                    if (error) {
+                        return <Text>{`Error: ${error}`}</Text>;
+                    }
+                    return (
+                        <ScrollView>
+                            {this.renderMovies(data)}
+                        </ScrollView>
+                    );
+                }}
+            </Query>
         );
     }
 
@@ -60,6 +43,9 @@ class MovieList extends React.Component<ScreenProps, MovieListState> {
     }
 
     private renderMovies = (allMovies: Movies) => {
+        if (!allMovies || !allMovies.movies) {
+            return null;
+        }
         return allMovies.movies.map((movie) => {
             return (
                 <MovieItem key={movie.id} movie={movie} action={this.onPress} />

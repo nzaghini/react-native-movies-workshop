@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { ScreenProps} from "../common/ScreenProps";
-import { Movie } from "../common/Models";
+import { ALL_MOVIES_QUERY_movies as Movie } from "../queries/models/ALL_MOVIES_QUERY";
 
 interface MovieDetailsProps extends ScreenProps {
     movie: Movie;
