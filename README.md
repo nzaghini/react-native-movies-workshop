@@ -31,4 +31,5 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 ## Step 6 - v0.6.0
 - Movie Details codebase
 
-
+## Step 7 - v0.7.0
+- Snapshot Jest tests example
