@@ -28,11 +28,11 @@ Read more about this issue: https://github.com/facebook/react-native/issues/2077
 ## Step 5 - v0.5.0
 - Movie Item codebase with action support for item selection
 
-## Step 6 - v0.6.0
+## Step 6 - v0.6.0
 - Movie Details codebase
 
-## Step 7 - v0.7.0
+## Step 7 - v0.7.0
 - Snapshot Jest tests example
 
-## Step 8 - v0.8.0
+## Step 8 - v0.8.0
 - GraphQL integration!
